@@ -87,9 +87,10 @@ public final class RevenueCatSubscriptionService: SubscriptionServiceProtocol {
     @MainActor
     private func updateAvailablePlans() {
         guard let currentOffering = currentOfferings?.current else {
-            // Fallback to default plans if no offerings available
-            availablePlans = [SubscriptionPlan.weeklyPlan, SubscriptionPlan.yearlyPlan]
-            selectedPlan = availablePlans.first
+            // No offerings available - clear plans and show error
+            availablePlans = []
+            selectedPlan = nil
+            print("⚠️ IndieBuilderKit: No RevenueCat offerings found. Please check your RevenueCat configuration and ensure you have created an offering with products.")
             return
         }
         
@@ -98,8 +99,14 @@ public final class RevenueCatSubscriptionService: SubscriptionServiceProtocol {
             convertPackageToSubscriptionPlan(package)
         }
         
-        // Auto-select the first plan
-        selectedPlan = availablePlans.first
+        // Check if we have any plans available
+        if availablePlans.isEmpty {
+            selectedPlan = nil
+            print("⚠️ IndieBuilderKit: No available subscription plans found. Please check your RevenueCat configuration and ensure you have configured products in your offering.")
+        } else {
+            // Auto-select the first plan only if we have plans
+            selectedPlan = availablePlans.first
+        }
     }
     
     private func convertPackageToSubscriptionPlan(_ package: Package) -> SubscriptionPlan? {
