@@ -1,4 +1,4 @@
-<img src="app_icon.png" width="80" alt="IndieBuilderKit App Icon">
+<img src="Images/app_icon.png" width="80" alt="IndieBuilderKit App Icon">
 
 **IndieBuilderKit**
 
@@ -39,50 +39,7 @@ struct MyApp: App {
 }
 ```
 
-## Visual Showcase
-
-<table>
-<tr>
-<td align="center">
-<img src="Screenshots/paywal.png" width="180" alt="Paywall"><br>
-<sub><b>Paywall</b></sub>
-</td>
-<td align="center">
-<img src="Screenshots/onboarding.png" width="180" alt="Onboarding"><br>
-<sub><b>Onboarding</b></sub>
-</td>
-<td align="center">
-<img src="Screenshots/settings.png" width="180" alt="Settings"><br>
-<sub><b>Settings</b></sub>
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="Screenshots/notification-permission.png" width="180" alt="Notification Permission"><br>
-<sub><b>Notification Permission</b></sub>
-</td>
-<td align="center">
-<img src="Screenshots/rating.png" width="180" alt="Rating"><br>
-<sub><b>Rating Request</b></sub>
-</td>
-<td align="center">
-<img src="Screenshots/network.png" width="180" alt="Network"><br>
-<sub><b>Network Demo</b></sub>
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="Screenshots/buttons.png" width="180" alt="Button Components"><br>
-<sub><b>Button Components</b></sub>
-</td>
-<td align="center">
-<img src="Screenshots/ui-components.png" width="180" alt="UI Components"><br>
-<sub><b>UI Components</b></sub>
-</td>
-<td align="center">
-</td>
-</tr>
-</table>
+<img src="Images/cover.png" alt="IndieBuilderKit - iOS toolkit showcase featuring paywall, settings, rating, notifications, typography, and UI components" width="100%">
 
 ## Why IndieBuilderKit?
 
