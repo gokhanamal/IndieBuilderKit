@@ -19,5 +19,10 @@ jobs:
       - name: Resolve
         run: swift package resolve
 
-      - name: Build
-        run: swift build
+      - name: Build (iOS)
+        run: |
+          xcodebuild -resolvePackageDependencies
+          xcodebuild \
+            -scheme IndieBuilderKit \
+            -destination "generic/platform=iOS" \
+            build
