@@ -26,6 +26,10 @@ let package = Package(
             resources: [
                 .process("Fonts")
             ]
+        ),
+        .testTarget(
+            name: "IndieBuilderKitTests",
+            dependencies: ["IndieBuilderKit"]
         )
     ]
 )
