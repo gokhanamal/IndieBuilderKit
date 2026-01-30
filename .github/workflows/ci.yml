@@ -20,4 +20,4 @@ jobs:
         run: swift package resolve
 
       - name: Build
-        run: swift package build
+        run: swift build
