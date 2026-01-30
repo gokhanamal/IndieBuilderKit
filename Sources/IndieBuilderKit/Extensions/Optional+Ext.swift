@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Optional+Ext.swift
 //  IndieBuilderKit
 //
 //  Created by Erkam Kucet on 27.08.2025.
@@ -151,7 +151,7 @@ public extension Swift.Optional where Wrapped == String {
     }
 }
 
-extension Optional where Wrapped == String {
+public extension Optional where Wrapped == String {
     var boolValue: Bool? {
         guard let nonOptionalSelf = self else {
             return nil
