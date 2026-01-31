@@ -8,11 +8,9 @@
 import Foundation
 
 public extension Collection {
-    subscript(safeIndex index: Index) -> Element? {
+    subscript(safe index: Index) -> Element? {
         guard indices.contains(index) else {
-            #if DEBUG
-            print("💣 Error: The index is out of the range.")
-            #endif
+            assertionFailure("Index out of range in safe subscript")
             return nil
         }
         return self[index]
