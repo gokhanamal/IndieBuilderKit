@@ -57,20 +57,36 @@ public struct AppSettingsConfiguration {
 
 public struct SettingsView: View {
     private let configuration: AppSettingsConfiguration
+    private let embedInNavigation: Bool
+
     @Environment(\.dismiss) private var dismiss
     @State private var showingMailComposer = false
     @State private var showingShareSheet = false
     #if canImport(MessageUI)
     @State private var mailResult: Result<MFMailComposeResult, Error>? = nil
     #endif
-    
-    public init(configuration: AppSettingsConfiguration) {
+
+    /// - Parameter embedInNavigation: Set to `false` when presenting inside an existing `NavigationStack`
+    ///   to avoid a double navigation bar.
+    public init(configuration: AppSettingsConfiguration, embedInNavigation: Bool = true) {
         self.configuration = configuration
+        self.embedInNavigation = embedInNavigation
     }
-    
+
     public var body: some View {
-        NavigationView {
-            List {
+        Group {
+            if embedInNavigation {
+                NavigationStack {
+                    content
+                }
+            } else {
+                content
+            }
+        }
+    }
+
+    private var content: some View {
+        List {
                 // App Actions Section
                 Section {
                     SettingsRow(
@@ -265,7 +281,6 @@ public struct SettingsView: View {
                     ])
                 }
             }
-        }
     }
     
     private var hasSupportSection: Bool {
@@ -294,7 +309,7 @@ public struct SettingsView: View {
     }
     
     private func handleWriteReview(url: URL) {
-        RatingService.shared.openAppStoreReview(appId: "")
+        RatingService.shared.openAppStoreReview(appStoreURL: url)
     }
     
     private func handleContactUs() {
